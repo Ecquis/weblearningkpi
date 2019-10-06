@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - employees@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
+    <root id="1"/>
+    <schema id="2" parent="1" name="employees">
+      <Visible>1</Visible>
+    </schema>
+    <table id="3" parent="2" name="departments"/>
+    <table id="4" parent="2" name="employees"/>
+    <table id="5" parent="2" name="posts"/>
+    <table id="6" parent="2" name="users"/>
+    <column id="7" parent="3" name="id">
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="8" parent="3" name="name">
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="9" parent="3" name="city">
+      <DataType>varchar(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="10" parent="3" name="address">
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="11" parent="3" name="phone">
+      <DataType>varchar(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="12" parent="3" name="departments_name_city_uindex">
+      <ColNames>name
+city</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="13" parent="3" name="departments_phone_uindex">
+      <ColNames>phone</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="14" parent="3" name="departments_name_city_uindex">
+      <ColNames>name
+city</ColNames>
+      <UnderlyingIndexName>departments_name_city_uindex</UnderlyingIndexName>
+    </key>
+    <key id="15" parent="3" name="departments_phone_uindex">
+      <ColNames>phone</ColNames>
+      <UnderlyingIndexName>departments_phone_uindex</UnderlyingIndexName>
+    </key>
+    <key id="16" parent="3" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="17" parent="4" name="id">
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="18" parent="4" name="firstname">
+      <DataType>varchar(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="4" name="lastname">
+      <DataType>varchar(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="4" name="phone">
+      <DataType>varchar(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="4" name="birth">
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="4" name="employed">
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="4" name="departmentId">
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="4" name="postId">
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="25" parent="4" name="employees_departments_id_fk">
+      <ColNames>departmentId</ColNames>
+    </index>
+    <index id="26" parent="4" name="employees_phone_uindex">
+      <ColNames>phone</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="27" parent="4" name="employees_posts_id_fk">
+      <ColNames>postId</ColNames>
+    </index>
+    <key id="28" parent="4" name="employees_phone_uindex">
+      <ColNames>phone</ColNames>
+      <UnderlyingIndexName>employees_phone_uindex</UnderlyingIndexName>
+    </key>
+    <key id="29" parent="4" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="30" parent="4" name="employees_departments_id_fk">
+      <ColNames>departmentId</ColNames>
+      <RefTableName>departments</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>restrict</OnUpdate>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <foreign-key id="31" parent="4" name="employees_posts_id_fk">
+      <ColNames>postId</ColNames>
+      <RefTableName>posts</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>restrict</OnUpdate>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <column id="32" parent="5" name="id">
+      <DataType>int(5)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="33" parent="5" name="name">
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="34" parent="5" name="name">
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="35" parent="5" name="name">
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>name</UnderlyingIndexName>
+    </key>
+    <key id="36" parent="5" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="37" parent="6" name="id">
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="38" parent="6" name="login">
+      <DataType>varchar(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="6" name="password">
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="40" parent="6" name="users_login_uindex">
+      <ColNames>login</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="41" parent="6" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="42" parent="6" name="users_login_uindex">
+      <ColNames>login</ColNames>
+      <UnderlyingIndexName>users_login_uindex</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>
